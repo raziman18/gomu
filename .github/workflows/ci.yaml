@@ -8,16 +8,6 @@ on:
       - 'LICENSE'
       - '.gitignore'
 
-
-on:
-  pull_request:
-    branches: [ '**' ]
-    paths-ignore:
-      - '**.md'
-      - '**.excalidraw'
-      - 'LICENSE'
-      - '.gitignore'
-
 jobs:
   build:
     runs-on: ubuntu-latest
