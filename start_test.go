@@ -16,9 +16,15 @@ import (
 // Test default case
 func TestGetArgsDefaults(t *testing.T) {
 	args := getArgs()
-	assert.Equal(t, *args.config, "~/.config/gomu/config")
+	homedir, err := os.UserHomeDir()
+	if err != nil {
+		t.Error(err)
+		t.FailNow()
+	}
+
+	assert.Equal(t, *args.config, homedir+"/.config/gomu/config")
 	assert.Equal(t, *args.empty, false)
-	assert.Equal(t, *args.music, "~/music")
+	assert.Equal(t, *args.music, homedir+"/Music")
 	assert.Equal(t, *args.version, false)
 }
 
