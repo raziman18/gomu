@@ -1,10 +1,22 @@
 name: ci
 
 on:
-  push:
-    branches: [ "master", "dev" ]
   pull_request:
     branches: [ "master", "dev" ]
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+      - '.gitignore'
+
+
+on:
+  pull_request:
+    branches: [ '**' ]
+    paths-ignore:
+      - '**.md'
+      - '**.excalidraw'
+      - 'LICENSE'
+      - '.gitignore'
 
 jobs:
   build:
